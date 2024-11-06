@@ -1,3 +1,5 @@
+// #region Declaração de variáveis
+
 let correctCountry;
 let options = [];
 
@@ -9,6 +11,8 @@ let maxConsecutive = 0;
 let timer;
 let timeLeft;
 let isTimerActive = false;
+
+// #endregion 
 
 function getCountryNameInPortuguese(country) {
     // Verifica se há tradução para português
