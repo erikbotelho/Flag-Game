@@ -275,7 +275,7 @@ h2 {
 }
 
 .checkbox-wrapper-8 .tgl-skewed:checked+.tgl-btn {
-    background: #86d993;
+    background: #5d4e64;;
 }
 
 .checkbox-wrapper-8 .tgl-skewed:checked+.tgl-btn:before {
@@ -313,7 +313,8 @@ h2 {
 
 /* #endregion */
 
-/* Adicione estas classes no seu CSS */
+/* #region Modo Escuro */
+
 .dark-mode .container {
     background-color: #000000;
 }
@@ -331,6 +332,14 @@ h2 {
     display: flex;
     justify-content: center;
 }
+
+.dark-mode #timerInput:not(:disabled) {
+    background-color: #5d4e64;
+    color: white;
+    border: 1px solid #f0f0f0;
+}
+
+/* #endregion */
 
 @media screen and (max-width: 2559px) {
     .container {
