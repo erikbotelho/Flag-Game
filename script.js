@@ -5,6 +5,10 @@ let consecutiveAnswers = 0;
 let totalCorrect = 0; 
 let total = 0;
 
+let timer;
+let timeLeft;
+let isTimerActive = false;
+
 function getCountryNameInPortuguese(country) {
     // Verifica se há tradução para português
     return country.translations && country.translations.por ?
@@ -52,6 +56,9 @@ function displayQuestion() {
         button.onclick = () => checkAnswer(option);
         optionsDiv.appendChild(button);
     });
+
+    // Inicia o timer após exibir a nova questão
+    startTimer();
 }
 
 // Altera o cursor com 5+ acertos
@@ -64,6 +71,8 @@ function updateCursor() {
 }
 
 function checkAnswer(selected) {
+    clearInterval(timer);
+
     const resultDiv = document.getElementById('result');
 
     total++; 
@@ -74,7 +83,7 @@ function checkAnswer(selected) {
         consecutiveAnswers++;
         updateCursor();
     } else {
-        resultDiv.innerHTML = `<p>Incorreto! O país correto era: ${getCountryNameInPortuguese(correctCountry)}</p>`;
+        resultDiv.innerHTML = `<p>O país correto era: ${getCountryNameInPortuguese(correctCountry)}</p>`;
         consecutiveAnswers = 0;
         updateCursor();
     }
@@ -103,3 +112,51 @@ window.onload = () => {
     getRandomCountries();
     document.getElementById('score').innerHTML = `Pontos Consecutivos: ${consecutiveAnswers}<br>Pontos: ${totalCorrect}<br>Tentativas: ${total}`;
 };
+
+function startTimer() {
+    // Verifica se o timer está ativo, se não estiver, sai da função
+    if (!isTimerActive) return;
+    
+    // Limpa timers existentes
+    clearInterval(timer);
+    
+    // Define o tempo inicial(digitado pelo usuário)
+    timeLeft = parseInt(document.getElementById('timerInput').value);
+    
+    // Atualiza a "tela" do timer
+    updateTimerDisplay();
+    
+    // Inicia um novo intervalo a  cada segundo
+    timer = setInterval(() => {
+        // Diminui o tempo restante em 1 segundo
+        timeLeft--;
+        // Atualiza a "tela" do timer
+        updateTimerDisplay();
+        
+        if (timeLeft <= 0) {
+            // Para o timer
+            clearInterval(timer);
+            // Envia uma resposta errada ao final do tempo
+            checkAnswer({ name: { common: 'timeout' } });
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    // Atualiza a "tela" do timer
+    document.getElementById('timerDisplay').textContent = timeLeft;
+}
+
+function toggleTimer() {
+    // Ativa/Desativa o timer
+    isTimerActive = document.getElementById('timerToggle').checked;
+    // Ativa/Desativa o input de tempo
+    document.getElementById('timerInput').disabled = !isTimerActive;
+    // Se o timer foi desativado
+    if (!isTimerActive) {
+        // Para o timer atual
+        clearInterval(timer);
+        // Limpa a "tela" do timer
+        document.getElementById('timerDisplay').textContent = '';
+    }
+}

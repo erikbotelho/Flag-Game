@@ -18,6 +18,18 @@
         <div id="result"></div>
         <button id="nextButton" style="display:none;">Próximo</button>
         <div id="score"></div>
+        <div class="timer-controls">
+            <div class="checkbox-wrapper-8">
+                Timer
+                <input class="tgl tgl-skewed" id="timerToggle" type="checkbox" onchange="toggleTimer()"/>
+                <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="timerToggle"></label>
+            </div>
+            <div class="timer-input-wrapper">
+                <input type="number" id="timerInput" value="10" min="1" max="60" disabled>
+                <span>segundos</span>
+            </div>
+            <div id="timerDisplay"></div>
+        </div>
         <script src="script.js"></script>
     </div>
 </body>
