@@ -40,7 +40,8 @@ Modo Escuro:
   Quando ativado (ON), a interface ficará com um tema escuro.
   Para voltar ao modo claro, clique no botão novamente.
 
-
-Obs: Este jogo precisa de conexão com a internet para funcionar, pois usamos dados de países e bandeiras de uma API online(créditos a: https://restcountries.com/).
-
 Divirta-se testando seus conhecimentos sobre bandeiras e países do mundo!
+
+# Observações: 
+Este jogo precisa de conexão com a internet para funcionar, pois usamos dados de países e bandeiras de uma API online(créditos a: https://restcountries.com/).
+
