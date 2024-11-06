@@ -18,10 +18,10 @@
   Inicialmente você verá uma bandeira e quatro nomes de países.
   Clique no nome que você acredita ser do país da bandeira exibida.
   Após fazer sua escolha, o jogo informará se você acertou ou errou.
-  Caso acerte, você pontuará, caso erre, sua sequência será resetada, mas não se preocupe pois te mostrarei sua pontuação total.
+  Caso acerte, você pontuará, caso erre, sua sequência será resetada, mas sua pontuação total continuará.
   Clique em "Próximo" para carregar uma nova bandeira e continuar jogando.
 
-  O jogo informa seus acertos consecutivos, total de pontos e número de tentativas.
+  O jogo informa seus acertos consecutivos, total de pontos, número de tentativas e recorde(maior sequência feita).
   Repare que após 5 acertos em sequência, seu mouse mudará para um design especial!
 
 
@@ -44,6 +44,6 @@
     Para voltar ao modo claro, clique no botão novamente
 
 
-  Obs: Este jogo precisa de conexão com a internet para funcionar, pois usamos dados de países e bandeiras de uma API online(créditos a: https://restcountries.com/).
+  Obs: Este jogo precisa de conexão com a internet para funcionar, pois usa dados de países e bandeiras de uma API online(créditos a: https://restcountries.com/).
 
   Divirta-se testando seus conhecimentos sobre bandeiras e países do mundo!
