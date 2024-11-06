@@ -35,6 +35,8 @@ h2 {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    border: 2px solid black;
+    border-radius: 4px;
 }
 
 #options {
@@ -59,10 +61,6 @@ h2 {
     /* cursor: url(https://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto; */
 }
 
-.answer-button:hover {
-    background-color: #4a3e50;
-}
-
 .answer-button:disabled {
     cursor: not-allowed;
     opacity: 0.7;
@@ -78,24 +76,6 @@ h2 {
     margin-top: 16px;
 }
 
-#nextButton {
-    padding: 8px 16px;
-    font-size: 12.8px;
-    background-color: #5d4e64;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    /* cursor: url(https://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto; */
-}
-
-#nextButton:hover {
-    background-color: #4a3e50;
-}
-
 .special-cursor {
     cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1157.ani), url(https://ani.cursors-4u.net/cursors/cur-13/cur1157.png), auto !important;
 }
@@ -103,7 +83,7 @@ h2 {
 .timer-controls {
     margin-bottom: 16px;
     padding: 8px;
-    background-color: #eee;
+    background-color: #f0f0f0;
     border-radius: 4px;
 }
 
@@ -119,8 +99,60 @@ h2 {
     margin-top: 8px;
 }
 
+/* #region Animação dos Botões */
+
+.answer-button:not(:disabled), #nextButton {
+    border-radius: 4px;
+    background-color: #5d4e64;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 8px 16px;
+    width: 120px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 16px auto;
+    display: block;
+    position: relative;
+    font-size: 12.8px;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+
+.answer-button:not(:disabled):after, #nextButton:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top: 8px;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.answer-button:not(:disabled):hover, #nextButton:hover {
+    padding-right: 24px;
+    padding-left: 8px;
+    background-color: #4a3e50;
+}
+
+.answer-button:not(:disabled):hover:after, #nextButton:hover:after {
+    opacity: 1;
+    right: 10px;
+}
+
+#options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.answer-button:not(:disabled) {
+    margin: 8px;
+}
+
+/* #endregion */
 
 /* #region Checkbox On/Off */
+
 .timer-controls {
     display: flex;
     flex-direction: column;
@@ -280,6 +312,31 @@ h2 {
 }
 
 /* #endregion */
+
+/* Adicione estas classes no seu CSS */
+.dark-mode .container {
+    background-color: #000000;
+}
+
+.dark-mode .timer-controls {
+    background-color: #000000;
+}
+
+.dark-mode #flagImage {
+    border-color: #f0f0f0;
+}
+
+.theme-switch {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 2559px) {
+    .container {
+        transform: scale(0.9);
+    }
+}
 
 @media screen and (min-width: 2560px) {
     .container {

@@ -160,3 +160,12 @@ function toggleTimer() {
         document.getElementById('timerDisplay').textContent = '';
     }
 }
+
+function toggleDarkMode() {
+    const isDarkMode = document.getElementById('darkModeToggle').checked;
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+}
