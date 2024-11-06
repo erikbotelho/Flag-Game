@@ -4,6 +4,7 @@ let options = [];
 let consecutiveAnswers = 0; 
 let totalCorrect = 0; 
 let total = 0;
+let maxConsecutive = 0;
 
 let timer;
 let timeLeft;
@@ -81,6 +82,9 @@ function checkAnswer(selected) {
         resultDiv.innerHTML = '<p>Correto!</p>';
         totalCorrect++;
         consecutiveAnswers++;
+        if (consecutiveAnswers > maxConsecutive) {
+            maxConsecutive = consecutiveAnswers;
+        }
         updateCursor();
     } else {
         resultDiv.innerHTML = `<p>O país correto era: ${getCountryNameInPortuguese(correctCountry)}</p>`;
@@ -89,7 +93,7 @@ function checkAnswer(selected) {
     }
 
     // Placar
-    document.getElementById('score').innerHTML = `Pontos Consecutivos: ${consecutiveAnswers}<br>Pontos: ${totalCorrect}<br>Tentativas: ${total}`;
+    document.getElementById('score').innerHTML = `Sequência: ${consecutiveAnswers}<br>Pontos: ${totalCorrect}<br>Tentativas: ${total}<br>Recorde: ${maxConsecutive}`;
 
     // Desabilita os botões de opção
     const optionsDiv = document.getElementById('options');
@@ -110,7 +114,7 @@ document.getElementById('nextButton').onclick = () => {
 // Carrega o jogo e o placar ao iniciar o site
 window.onload = () => {
     getRandomCountries();
-    document.getElementById('score').innerHTML = `Pontos Consecutivos: ${consecutiveAnswers}<br>Pontos: ${totalCorrect}<br>Tentativas: ${total}`;
+    document.getElementById('score').innerHTML = `Sequência: ${consecutiveAnswers}<br>Pontos: ${totalCorrect}<br>Tentativas: ${total}<br>Recorde: ${maxConsecutive}`;
 };
 
 function startTimer() {
